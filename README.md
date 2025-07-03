@@ -16,3 +16,9 @@ Meanwhile, the compiled output files will be generated in the `bin` folder by de
 ## Dependency Management
 
 The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+## El proposito del proyecto
+
+Este proyecto muestra la conexcion entre postgres SQL y java 
+Ademas de la creacion de una UI usando java Swing
+
