@@ -1,7 +1,7 @@
 package screens;
 
-import java.awt.Font;
-import javax.swing.GroupLayout;
+import java.awt.Font;//nesesario para cambiar el tipo de letra
+import javax.swing.GroupLayout; //nesesario para el diseño del layout
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -62,7 +62,7 @@ public class JInternalFrameInsertarCarrera extends JInternalFrame{
                 .addComponent(lblNombreCarrera)
                 .addComponent(txtNombreCarrera)
                 .addComponent(lblMonto)
-                .addComponent(txtMonto)
+                
                 .addGroup(
                     layout.createSequentialGroup()
                         .addComponent(btnAceptar)
