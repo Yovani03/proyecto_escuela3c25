@@ -39,6 +39,7 @@ public class VentanaPrincipal extends JFrame{
         // Elemento de menu: Ver alumnos
         jMenuItemVerAlumnos = new JMenuItem();
         jMenuItemVerAlumnos.setText("Ver todos los alumnos...");
+        
 
         // Menú Carreras
         jMenuCarreras = new JMenu();
