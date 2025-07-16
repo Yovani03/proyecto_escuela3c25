@@ -11,10 +11,13 @@ public class VentanaPrincipal extends JFrame{
     private JMenuBar jMenuBar;
     private JMenu jMenuAlumnos;
     private JMenu jMenuCarreras;
+    private JMenu jMenuBachilleratos;
     private JMenuItem jMenuItemInsertar;
     private JMenuItem jMenuItemVerAlumnos;
     private JMenuItem jMenuItemInsertarCarreras;
     private JMenuItem jMenuItemVerCarreras;
+    private JMenuItem jMenuItemInsertarBachillerato;
+    private JMenuItem jMenuItemVerBachilleratos;
 
     public VentanaPrincipal(String title){
         this.setTitle(title);
@@ -29,7 +32,7 @@ public class VentanaPrincipal extends JFrame{
         this.setContentPane(desktop); 
         // Barra de Menu
         jMenuBar = new JMenuBar();
-        // this.add(jMenuBar);
+        
         // Menu Alumnos
         jMenuAlumnos = new JMenu();
         jMenuAlumnos.setText("Alumnos");
@@ -39,7 +42,6 @@ public class VentanaPrincipal extends JFrame{
         // Elemento de menu: Ver alumnos
         jMenuItemVerAlumnos = new JMenuItem();
         jMenuItemVerAlumnos.setText("Ver todos los alumnos...");
-        
 
         // Menú Carreras
         jMenuCarreras = new JMenu();
@@ -50,9 +52,20 @@ public class VentanaPrincipal extends JFrame{
         // Elemento de menu: Insertar carrera
         jMenuItemInsertarCarreras = new JMenuItem();
         jMenuItemInsertarCarreras.setText("Insertar...");
-        //Agregar el listener de eventos para ejecular la accion de insertar carrera
-        jMenuItemInsertarCarreras.addActionListener(e -> jmiInsertarCarreras());
-       
+
+        // Menú Bachilleratos
+        jMenuBachilleratos = new JMenu();
+        jMenuBachilleratos.setText("Bachilleratos");
+        // Elemento de menu: Ver Bachilleratos
+        jMenuItemVerBachilleratos = new JMenuItem();
+        jMenuItemVerBachilleratos.setText("Ver todos los bachilleratos...");
+        // Elemento de menu: Insertar Bachillerato
+        jMenuItemInsertarBachillerato = new JMenuItem();
+        jMenuItemInsertarBachillerato.setText("Insertar...");
+
+        //Agregar el listener de eventos para ejecutar la acción de insertar carrera
+        jMenuItemInsertarCarreras.addActionListener(e -> insertarCarreras());
+        jMenuItemInsertarBachillerato.addActionListener(e -> insertarBachillerato());
 
 
         // Agregar menuItem a menu 
@@ -64,18 +77,29 @@ public class VentanaPrincipal extends JFrame{
         jMenuCarreras.add(jMenuItemInsertarCarreras);
         jMenuBar.add(jMenuCarreras);
 
+        jMenuBachilleratos.add(jMenuItemVerBachilleratos);
+        jMenuBachilleratos.add(jMenuItemInsertarBachillerato);  
+        jMenuBar.add(jMenuBachilleratos);
+
         this.setJMenuBar(jMenuBar);
         pack();
     }
 
-    private void jmiInsertarCarreras(){
-        //#1 Crear un objeto tipo JInternalFrame
+    private void insertarCarreras(){
+        //1. Crear un objeto tipo JInternalFrame
         JInternalFrameInsertarCarrera insertarCarrera = new JInternalFrameInsertarCarrera();
-        //Agregar el internal frame al escritorio desktop
+        
+        //2. Agregar el internal frame al escritorio(desktop)
         this.desktop.add(insertarCarrera);
-
-        //Hacer visible el internal frame
+        
+        //3. Hacer visible el internal frame
         insertarCarrera.setVisible(true);
+    }
+
+    private void insertarBachillerato(){
+        JInternalFrameInsertarBachillerato insertarBachillerato = new JInternalFrameInsertarBachillerato();
+        this.desktop.add(insertarBachillerato); 
+        insertarBachillerato.setVisible(true);
     }
 
     

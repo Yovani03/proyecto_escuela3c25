@@ -1,8 +1,20 @@
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import models.Conexion;
 import screens.VentanaPrincipal;
 
 public class App {
     public static void main(String[] args) throws Exception {
+
+        try {
+            Connection conn = Conexion.conectar();{
+                System.out.println("Conexion exitosa con la base de datos");
+            }
+            
+        } catch (SQLException e) {
+             System.out.println("Error al conectar la base de datos "+e.getMessage());
+        }
         
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -12,7 +24,7 @@ public class App {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error en el Look and Feel: " + e.getMessage());
         }
         VentanaPrincipal ventanaPrincipal = new VentanaPrincipal("Proyecto Escuela");
         ventanaPrincipal.setSize(500,500);

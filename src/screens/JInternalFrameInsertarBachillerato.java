@@ -1,6 +1,5 @@
 package screens;
 
-
 import java.awt.Font;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -8,7 +7,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class JInternalFrameInsertarBachillerato extends JInternalFrame{ 
+public class JInternalFrameInsertarBachillerato extends JInternalFrame {
     private JLabel lblId;
     private JLabel lblNombreBachillerato;
     private JTextField txtId;
@@ -17,12 +16,12 @@ public class JInternalFrameInsertarBachillerato extends JInternalFrame{
     private JButton btnCancelar;
 
     public JInternalFrameInsertarBachillerato(){
-        super("Insertar carrera", 
+        super("Insertar bachillerato", 
               true,  // resizable
               true,  // closable
               true,  // maximizable
               true); // iconifiable (minimizable)
-        this.setTitle("Insertar nueva Bachillerato");
+        this.setTitle("Insertar nueva bachillerato");
         this.setSize(400,400);
         initComponents();
     }
