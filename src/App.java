@@ -6,9 +6,10 @@ import screens.VentanaPrincipal;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Connection conn;
 
         try {
-            Connection conn = Conexion.conectar();{
+                conn = Conexion.conectar();{
                 System.out.println("Conexion exitosa con la base de datos");
             }
             
@@ -26,7 +27,7 @@ public class App {
         } catch (Exception e) {
             System.out.println("Error en el Look and Feel: " + e.getMessage());
         }
-        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal("Proyecto Escuela");
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal("Proyecto Escuela", conn);
         ventanaPrincipal.setSize(500,500);
         ventanaPrincipal.setVisible(true);
     }
