@@ -5,8 +5,9 @@ import models.Conexion;
 import screens.VentanaPrincipal;
 
 public class App {
+    @SuppressWarnings("UseSpecificCatch")
     public static void main(String[] args) throws Exception {
-        Connection conn;
+        Connection conn = null;
 
         try {
                 conn = Conexion.conectar();{

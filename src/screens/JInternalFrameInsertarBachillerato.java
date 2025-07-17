@@ -7,6 +7,9 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+
+
+
 public class JInternalFrameInsertarBachillerato extends JInternalFrame {
     private JLabel lblId;
     private JLabel lblNombreBachillerato;
@@ -15,12 +18,16 @@ public class JInternalFrameInsertarBachillerato extends JInternalFrame {
     private JButton btnAceptar;
     private JButton btnCancelar;
 
+    
+
+
     public JInternalFrameInsertarBachillerato(){
         super("Insertar bachillerato", 
               true,  // resizable
               true,  // closable
               true,  // maximizable
               true); // iconifiable (minimizable)
+        
         this.setTitle("Insertar nueva bachillerato");
         this.setSize(400,400);
         initComponents();

@@ -1,7 +1,6 @@
 package screens;
 
 import java.sql.Connection;
-
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -92,7 +91,8 @@ public class VentanaPrincipal extends JFrame{
 
     private void insertarCarreras(){
         //1. Crear un objeto tipo JInternalFrame
-        JInternalFrameInsertarCarrera insertarCarrera = new JInternalFrameInsertarCarrera();
+        JInternalFrameInsertarCarrera insertarCarrera = new JInternalFrameInsertarCarrera(this.conn);
+
         
         //2. Agregar el internal frame al escritorio(desktop)
         this.desktop.add(insertarCarrera);

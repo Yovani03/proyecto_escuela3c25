@@ -1,11 +1,16 @@
 package screens;
 
 import java.awt.Font;//nesesario para cambiar el tipo de letra
-import javax.swing.GroupLayout; //nesesario para el diseño del layout
+import java.sql.Connection; //nesesario para el diseño del layout
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import models.Carrera;
+import models.CarreraDAO;
+
 
 public class JInternalFrameInsertarCarrera extends JInternalFrame{
     private JLabel lblId;
@@ -16,13 +21,15 @@ public class JInternalFrameInsertarCarrera extends JInternalFrame{
     private JTextField txtMonto;
     private JButton btnAceptar;
     private JButton btnCancelar;
+    private Connection conn;
 
-    public JInternalFrameInsertarCarrera(){
+    public JInternalFrameInsertarCarrera(Connection conn){
         super("Insertar carrera", 
               true,  // resizable
               true,  // closable
               true,  // maximizable
               true); // iconifiable (minimizable)
+        this.conn = conn;
         this.setTitle("Insertar nueva carrera");
         this.setSize(400,400);
         initComponents();
@@ -47,6 +54,7 @@ public class JInternalFrameInsertarCarrera extends JInternalFrame{
         btnAceptar.setFont(new Font("Tahoma", Font.BOLD, 16));
         btnCancelar.setFont(new Font("Tahoma", Font.BOLD, 16));
 
+        btnAceptar.addActionListener(e -> InsertarCarrera());
         btnCancelar.addActionListener(e -> this.dispose());
 
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -85,7 +93,37 @@ public class JInternalFrameInsertarCarrera extends JInternalFrame{
                 )
         );
     }
-    
+    private void InsertarCarrera(){
+        int rows = 0;
+
+       // Recuperar datos del formulario y meterlos en un objeto carrera
+        int id = Integer.parseInt(txtId.getText());
+        String nombre = txtNombreCarrera.getText();
+        double monto = Double.parseDouble(txtMonto.getText());
+        //Validad que los campos no esten vacios
+        if (txtId.getText().isEmpty()|| txtNombreCarrera.getText().isEmpty() || txtMonto.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Por favor ingrese los datos solicitados");
+            return;
+        }
+        else {
+            Carrera carrera = new Carrera(id, nombre, monto);
+            CarreraDAO carreraDAO = new CarreraDAO(conn);
+            rows = carreraDAO.InsertarCarrera(carrera);
+            
+            if (rows > 0){
+                JOptionPane.showMessageDialog(this, "Carrera insertada correctamente");
+
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Error al insertar la carrera");
+
+            }
+        }
+        txtId.setText("title");
+        txtNombreCarrera.setText("title");
+        txtMonto.setText("title");
+        this.dispose();
+    } 
 }
 
 
